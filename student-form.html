@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+   
+</head>
+<style>
+    .container{
+       text-align: center;
+        border: 1px solid;
+    }
+  
+</style>
+
+<body>
+    
+    <div class="container">
+        <h1>Login form</h1>
+        <form class="form" onSubmit="handle(event)">
+            <label>Name:</label><input type="text" name="name" required minlength=2/> <br>
+            Password:<input type="password" required /><br>
+            <label>email:</label><input type="email" name="eamail" required /><br>
+            <!-- mysite@ourearth.com -->
+            <label>Age:</label><input required type="number" name="age" /><br>
+            Gender:
+            <input type="radio" name="gender" value="male" />:Male
+            <input type="radio" name="gender" value="female" />:Female
+            <input type="radio" name="gender" value="others" />:others
+            <br>
+            <label>Technologies</label>
+            <input type="checkbox" value="html" name="tech">:html 
+            <input type="checkbox" value="css" name="tech">:css 
+            <input type="checkbox" value="js" name="tech">:js 
+            <input type="checkbox" value="react" name="tech">:react js <br>
+            <br>
+            <select name="location" id="">
+                <option selected disabled>please select your city</option>
+                <option value="hyd">Hyderabad</option>
+                <option value="vjy">vijayawada</option>
+                <option value="sec">secundrabad</option>
+                <option value="knr">karimnagar</option>
+                <option value="sdpt">siddipet</option>
+            </select>
+            <br>
+            <button type="submit">Submit</button>
+            <button type="button">cancel</button>
+
+        </form>
+        <button onclick="add()">click</button>
+    </div>
+
+    <script>
+        function handle(e){
+           e.preventDefault()
+           let usedetails={}
+           let data=new FormData(e.target)
+           data.forEach((each)=>console.log(each))
+            for(let [key,val] of data.entries()){
+                usedetails[key]=val
+            }
+            console.log(usedetails)
+        }
+        function add(){
+            console.log('clicked')
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- http://127.0.0.1:5500/student-form.html?gender=male -->
